@@ -1,6 +1,6 @@
 #!/bin/sh
 
-docker build --tag crond:build . --no-cache -f ./Dockerfile.crond
+docker build --tag crond:build . --no-cache
 # docker run -it  --rm  --name crond crond:build /bin/sh
 # docker run -e APP_KEY=base64:QzHqTpf+hNEh9t9sm/9DgPsGXTtQ0ErOppLRisa14YU= -d -p 8000:8000 --rm --name cachet  cachet:build
 

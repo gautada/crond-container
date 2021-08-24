@@ -29,4 +29,9 @@ This should "auto magically" support 3-2-1 backups.  3 backup copies across at l
 
 https://www.withoutthesarcasm.com/using-amazon-glacier-for-personal-backups/
 
+#### Needs
+
+- Backup postgres server, create daily snapshot, back that up
+- Backup live sqlite data.
+
 
