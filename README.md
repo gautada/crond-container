@@ -20,6 +20,13 @@ Continue to run tests against non-operational components, that have an existing 
 
 ### glacier-backup
 
-to-do: define this.
+This should "auto magically" support 3-2-1 backups.  3 backup copies across at least 2 locations with at least 1 location off-site. Requirements for this backup service are:
+
+1. Automatic which is, "set it and forget it"
+2. Local high quality encryption
+3. Multiple Drop points - I don't know what this ment originally. Now I take it to mean that it can pull data files from multiple points.
+4. Should provide an ability to do statusing. - At a minimum container health status.
+
 https://www.withoutthesarcasm.com/using-amazon-glacier-for-personal-backups/
+
 
