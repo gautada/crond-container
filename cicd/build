@@ -1,0 +1,13 @@
+#!/bin/sh
+
+docker build --tag crond:build . --no-cache -f ./Dockerfile.crond
+# docker run -it  --rm  --name crond crond:build /bin/sh
+# docker run -e APP_KEY=base64:QzHqTpf+hNEh9t9sm/9DgPsGXTtQ0ErOppLRisa14YU= -d -p 8000:8000 --rm --name cachet  cachet:build
+
+docker tag crond:build gautada/crond:Alpine-3.14.1
+docker push gautada/crond:Alpine-3.14.1
+
+# -e DB_DRIVER=sqlite -e DB_HOST=./database.sqlite
+# -e APP_KEY=Tg/bVYgsEscv/9nPUNDmxh8xygynk5x4+uCZ/+zu+vk=
+# php artisan key:generate
+# head -c32 /dev/urandom | base64
