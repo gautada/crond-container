@@ -1,5 +1,5 @@
 # Ignore Xcode files
 *.xcodeproj/
 .DS_Store
-*.env
+*.json
 *.sqlite
