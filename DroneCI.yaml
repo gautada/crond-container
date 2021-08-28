@@ -14,7 +14,7 @@ steps:
   - buildah images
   
 - name: test
-  commands
+  commands:
   - buildah images
 
 
