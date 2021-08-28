@@ -11,18 +11,18 @@ steps:
       from_secret: hub.docker.io-username
     DOCKER_PASSWORD:
       from_secret: hub.docker.io-password
-    ALPINE_VERSION: 3.14.1
-    BRANCH: v${ALPINE_VERSION}
-    GOOS: linux
-    GOARCH: arm64
+    ALPINE_TAG: 3.14.1
+    OCI_VERSION: v3.14.1
+    OCI_OS: linux
+    OCI_ARCH: arm64
   commands:
-  # set BRANCH=v$ALPINE_VERSION
-  - echo $BRANCH
-  
-  - buildah bud --build-arg ALPINE_VERSION=$ALPINE_VERSION --tag localhost/crond:dev -f Containerfile
+  - echo $OCI_VERSION
+  - sleep 5
+  - echo $OCI_VERSION
+  - buildah bud --build-arg ALPINE_TAG=$ALPINE_TAG --tag localhost/crond:dev -f Containerfile
   # to-do: run the container, add the tests, then publish
-  - buildah login --username="${DOCKER_USERNAME}" --password="${DOCKER_PASSWORD}" docker.io
-  - buildah push localhost/crond:dev docker://docker.io/gautada/crond:"${BRANCH}"
+  - buildah login --username=$DOCKER_USERNAME --password=$DOCKER_PASSWORD} docker.io
+  - buildah push localhost/crond:dev docker://docker.io/gautada/crond:#OCI_VERSION
   - buildah images
   
 
