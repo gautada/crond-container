@@ -17,8 +17,8 @@ steps:
     GOARCH: arm64
   commands:
   # set BRANCH=v$ALPINE_VERSION
-  - echo ${BRANCH}
-  - sleep 5 # give docker enough time to start
+  - echo $BRANCH
+  
   - buildah bud --build-arg ALPINE_VERSION=$ALPINE_VERSION --tag localhost/crond:dev -f Containerfile
   # to-do: run the container, add the tests, then publish
   - buildah login --username="${DOCKER_USERNAME}" --password="${DOCKER_PASSWORD}" docker.io
