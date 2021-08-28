@@ -1,4 +1,4 @@
-ARG ALPINE_VERSION=v0.0.0
+ARG ALPINE_VERSION=0.0.0
 FROM alpine:$ALPINE_VERSION as config-alpine
 
 RUN apk add --no-cache tzdata
@@ -6,7 +6,7 @@ RUN apk add --no-cache tzdata
 RUN cp -v /usr/share/zoneinfo/America/New_York /etc/localtime
 RUN echo "America/New_York" > /etc/timezone
 
-FROM config-alpine
+FROM alpine:$ALPINE_VERSION
 
 COPY --from=config-alpine /etc/localtime /etc/localtime
 COPY --from=config-alpine /etc/timezone  /etc/timezone
