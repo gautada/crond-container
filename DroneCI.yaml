@@ -12,8 +12,7 @@ steps:
     DOCKER_PASSWORD:
       from_secret: hub.docker.io-password
   commands:
-  - echo $
-  - echo $hub.docker.io-password
+  - echo $DOCKER_USERNAME
   - sleep 5 # give docker enough time to start
   - buildah bud --build-arg BRANCH=v3.14.1 --tag localhost/crond:dev -f Containerfile
   - buildah login --username=$DOCKER_USER --password=$DOCKER_PASSWORD docker.io
