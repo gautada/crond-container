@@ -6,13 +6,19 @@ steps:
 - name: build
   image: gautada/builder:v1.21.4_v3.2.3
   privileged: true
+  environment:
+    DOCKER_USERNAME:
+      from_secret: hub.docker.io-username
+    DOCKER_PASSWORD:
+      from_secret: hub.docker.io-password
   commands:
-  - echo $hub.docker.io-username
+  - echo $
   - echo $hub.docker.io-password
   - sleep 5 # give docker enough time to start
-  - buildah bud --build-arg BRANCH=v3.14.1 --tag crond:dev -f Containerfile
-  - buildah tag crond:dev docker.io/gautada/crond:v3.14.1
-  - buildah push docker.io/gautada/crond:v3.14.1
+  - buildah bud --build-arg BRANCH=v3.14.1 --tag localhost/crond:dev -f Containerfile
+  - buildah login --username=$DOCKER_USER --password=$DOCKER_PASSWORD
+  # buildah tag localhost/crond:dev docker.io/gautada/crond:v3.14.1
+  - buildah push localhost/crond.dev docker://docker.io/gautada/crond:v3.14.1
   - buildah images
   
 
