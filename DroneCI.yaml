@@ -12,13 +12,14 @@ steps:
     DOCKER_PASSWORD:
       from_secret: hub.docker.io-password
     ALPINE_VERSION: 3.14.1
+    BRANCH: v$ALPINE_VERSION
     GOOS: linux
-    GOARCH: amd64
+    GOARCH: arm64
   commands:
-  - set BRANCH=v${ALPINE_VERSION}
+  # set BRANCH=v$ALPINE_VERSION
   - echo ${BRANCH}
   - sleep 5 # give docker enough time to start
-  - buildah bud --build-arg ALPINE_VERSION="${ALPINE_VERSION}" --tag localhost/crond:dev -f Containerfile
+  - buildah bud --build-arg ALPINE_VERSION=$ALPINE_VERSION --tag localhost/crond:dev -f Containerfile
   # to-do: run the container, add the tests, then publish
   - buildah login --username="${DOCKER_USERNAME}" --password="${DOCKER_PASSWORD}" docker.io
   - buildah push localhost/crond:dev docker://docker.io/gautada/crond:"${BRANCH}"
