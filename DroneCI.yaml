@@ -9,6 +9,12 @@ steps:
   commands:
   - sleep 5 # give docker enough time to start
   - buildah bud --build-arg BRANCH=v3.14.1 --tag crond:dev -f Containerfile
+  - buildah tag crond:dev docker.io/gautada/crond:v3.14.1
+  - buildah push docker.io/gautada/crond:v3.14.1
+  - buildah images
   
+- name test
+  commands
+  - buildah images
 
 
