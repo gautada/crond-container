@@ -1,6 +1,6 @@
-# Container - crond
+# crond
 
-A container to hold and run a crond daemon.  This container will  holds multiple "services" that provided various tasks that make sense to be scheduled. This container can run independently or as part of a kubernets cron serivce.
+A container to hold and run a crond daemon.  This container will  holds multiple scripts that provided various tasks that make sense to be scheduled. This container can run independently or as part of a kubernets cron serivce.
 
 ## Configuration
 

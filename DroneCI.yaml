@@ -1,0 +1,14 @@
+kind: pipeline
+type: kubernetes
+name: Docker Test
+
+steps:
+- name: build
+  image: gautada/crond:v1.21.4_v3.2.3
+  privileged: true
+  commands:
+  - sleep 5 # give docker enough time to start
+  - buildah bud --build-arg BRANCH=v3.14.1 -f Containerfile
+
+
+

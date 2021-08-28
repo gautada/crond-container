@@ -16,5 +16,4 @@ RUN pip install cachet-client pythonping
 COPY cachet-component-tester.py /sbin/cachet-component-tester.py
 RUN ln -s /sbin/cachet-component-tester.py /etc/periodic/15min/cachet-component-tester
 
-ENTRYPOINT ["/usr/sbin/crond"]
-CMD ["-f", "-l", "0"]
+CMD ["/usr/sbin/crond", "-f", "-l", "0"]
