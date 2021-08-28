@@ -14,10 +14,10 @@ steps:
   commands:
   - sleep 5 # give docker enough time to start
   - echo "$DOCKER_USERNAME"
-  # buildah bud --build-arg BRANCH=v3.14.1 --tag localhost/crond:dev -f Containerfile
+  - buildah bud --build-arg BRANCH=v3.14.1 --tag localhost/crond:dev -f Containerfile
   - buildah login --username="$DOCKER_USERNAME" --password="$DOCKER_PASSWORD" docker.io
   # buildah tag localhost/crond:dev docker.io/gautada/crond:v3.14.1
-  # buildah push localhost/crond.dev docker://docker.io/gautada/crond:v3.14.1
-  # buildah images
+  - buildah push localhost/crond.dev docker://docker.io/gautada/crond:v3.14.1
+  - buildah images
   
 
