@@ -8,7 +8,7 @@ steps:
   privileged: true
   commands:
   - sleep 5 # give docker enough time to start
-  - buildah bud --build-arg BRANCH=v3.14.1 -f Containerfile
-
+  - buildah bud --build-arg BRANCH=v3.14.1 --tag crond:dev -f Containerfile
+  
 
 
