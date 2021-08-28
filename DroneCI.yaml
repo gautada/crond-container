@@ -13,7 +13,7 @@ steps:
   - buildah push docker.io/gautada/crond:v3.14.1
   - buildah images
   
-- name test
+- name: test
   commands
   - buildah images
 
