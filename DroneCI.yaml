@@ -8,9 +8,9 @@ steps:
   privileged: true
   environment:
     DOCKER_USERNAME:
-      from_secret: hub.docker.io-username
+      from_secret: username.docker.io
     DOCKER_PASSWORD:
-      from_secret: hub.docker.io-password
+      from_secret: password.docker.io
     ALPINE_TAG: 3.14.1
     OCI_VERSION: v3.14.1
     OCI_OS: linux
