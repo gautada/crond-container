@@ -21,5 +21,7 @@ steps:
   - buildah push localhost/crond:dev docker://docker.io/gautada/crond:$OCI_VERSION
 
 
-+branches: main
+trigger:
+  branch:
+  - main
 
