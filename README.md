@@ -33,5 +33,5 @@ https://www.withoutthesarcasm.com/using-amazon-glacier-for-personal-backups/
 
 - Backup postgres server, create daily snapshot, back that up
 - Backup live sqlite data.
-
+- flip/flop
 
