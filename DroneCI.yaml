@@ -23,5 +23,6 @@ steps:
   # to-do: run the container, add the tests, then publish
   - buildah push localhost/crond:dev docker://docker.io/gautada/crond:$OCI_VERSION
   - buildah images
-  
+
++branches: main
 
