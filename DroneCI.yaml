@@ -1,6 +1,6 @@
 kind: pipeline
 type: kubernetes
-name: Docker Test
+name: Continuous Integration
 
 steps:
 - name: integrate
@@ -16,13 +16,12 @@ steps:
     OCI_OS: linux
     OCI_ARCH: arm64
   commands:
-  - sleep 5
-  - echo "xyz${DOCKER_PASSWORD}"
   - buildah login --username=$DOCKER_USERNAME --password=$DOCKER_PASSWORD docker.io
   - buildah bud --build-arg ALPINE_TAG=$ALPINE_TAG --tag localhost/crond:dev -f Containerfile
-  # to-do: run the container, add the tests, then publish
   - buildah push localhost/crond:dev docker://docker.io/gautada/crond:$OCI_VERSION
-  - buildah images
 
-+branches: main
+
+trigger:
+  branch:
+  - main
 
